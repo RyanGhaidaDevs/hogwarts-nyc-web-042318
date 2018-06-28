@@ -7,27 +7,27 @@ class HogBox extends React.Component{
       return `${snakeName}`
         
     }
-    hogNameTranslation2 = (name) => {
-        let snakeName = name.toLowerCase().split(" ").join("_")
-        return `../hog-imgs/${snakeName}.jpg`
-      }
+    // hogNameTranslation2 = (name) => {
+    //     let snakeName = name.toLowerCase().split(" ").join("_")
+    //     return `../hog-imgs/${snakeName}.jpg`
+    //   }
   
 
     render() {
-        let url2 = this.hogNameTranslation2(this.props.hog.name)
+        // let url2 = this.hogNameTranslation2(this.props.hog.name)
 
         let url = this.hogNameTranslation(this.props.hog.name)
-        console.log(url)
+        // console.log(url)
         
-        let url3 = '../hog-imgs/mudblood.jpg'
-        console.log(url2)
-        console.log(`../hog-imgs/${url}.jpg`)
+        // let url3 = '../hog-imgs/mudblood.jpg'
+        // console.log(url2)
+        // console.log(`../hog-imgs/${url}.jpg`)
 
-        console.log(`../hog-imgs/${url}.jpg` === url2)
+        // console.log(`../hog-imgs/${url}.jpg` === url2)
 
         return(
             <div>
-                <img src={require(url2)} alt={this.props.hog.name}/>
+                <img src={require(`../hog-imgs/${url}.jpg`)} alt={this.props.hog.name}/>
              <h1> {this.props.hog.name} </h1>
             </div>
         )
