@@ -26,7 +26,7 @@ class HogBox extends React.Component{
         // console.log(`../hog-imgs/${url}.jpg` === url2)
 
         return(
-            <div>
+            <div onClick = {() => this.props.onClickHog(this.props.hog.name)} className = "card">
                 <img src={require(`../hog-imgs/${url}.jpg`)} alt={this.props.hog.name}/>
              <h1> {this.props.hog.name} </h1>
             </div>

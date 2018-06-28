@@ -7,11 +7,16 @@ class AppContainer extends React.Component{
         super(props);
         this.state = {
             hogs: props.allHogs,
-            currentHog: 0, //index of the hogs
+            currentHog: this.props.allHogs[0], //name
             inputText: "",
             weightSearch: false,
             selectMenu: 0,
         }
+    }
+
+    displayDetails = (name) => {
+       let hogClicked =  this.props.allHogs.find(hog => hog.name == name)
+        this.setState( {currentHog: hogClicked})
     }
 
     weightButton = (e) => {
@@ -43,7 +48,7 @@ class AppContainer extends React.Component{
 
     generateNewTextBox = () => {
         return (
-           <div>
+           <div className = "ui header">
             <input type="text" value={this.state.inputText} onChange={this.handleChange}/> 
             <select onChange={this.selectGrease}>
                 <option value="All">All Hogs</option>
@@ -88,8 +93,9 @@ class AppContainer extends React.Component{
 
             <div>
                 {this.generateNewTextBox()}
-                <HogList hogs = {this.state.hogs}/>
-                <HogDisplay singleHog = {this.state.hogs[this.state.currentHog]}/>
+                <HogDisplay singleHog = {this.state.currentHog}/>
+                <HogList hogs = {this.state.hogs} onClickHog = {this.displayDetails}/>
+                
             </div>
         );
     }

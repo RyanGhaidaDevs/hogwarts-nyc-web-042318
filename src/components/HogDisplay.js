@@ -1,12 +1,19 @@
 import React from "react";
 
 class HogDisplay extends React.Component{
+    hogNameTranslation = (name) => {
+        let snakeName = name.toLowerCase().split(" ").join("_")
+        return `${snakeName}`
+      }
     render(){
+    
       let hogProp = this.props.singleHog
+      let url = this.hogNameTranslation(hogProp.name)
       if(hogProp) {
         let ratio = "weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water"
         return (
-            <div>
+            <div className = "ui fluid image">
+                <img src={require(`../hog-imgs/${url}.jpg`)} alt={hogProp.name}/>
                 <h1> Name: {hogProp.name}</h1>
                 <h2>Greased: {hogProp.greased.toString()}</h2>
                 <h2>Best Medal: {hogProp["highest medal achieved"]}</h2>
