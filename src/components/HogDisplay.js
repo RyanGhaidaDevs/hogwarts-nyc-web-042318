@@ -4,7 +4,6 @@ class HogDisplay extends React.Component{
     render(){
       let hogProp = this.props.singleHog
       if(hogProp) {
-        console.log(hogProp)
         let ratio = "weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water"
         return (
             <div>
@@ -24,8 +23,6 @@ class HogDisplay extends React.Component{
             </h1>
         </div>
         )}
-    
-
 }}
 
 export default HogDisplay;
